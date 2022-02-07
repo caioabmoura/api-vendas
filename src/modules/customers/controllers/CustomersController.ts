@@ -44,9 +44,9 @@ export default class CustomersController {
     const updateCustomer = new UpdateCustomerService();
 
     const customer = await updateCustomer.execute({
-      id,
       name,
       email,
+      id,
     });
 
     return res.json(customer);
