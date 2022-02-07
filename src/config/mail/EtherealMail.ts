@@ -11,7 +11,7 @@ interface ItemplateVariable {
 }
 
 interface IParseMailTemplate {
-  template: string;
+  file: string;
   variables: ItemplateVariable;
 }
 
