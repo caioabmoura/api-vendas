@@ -40,7 +40,7 @@ class CreateOrderService {
 
     if (checkInexistentProducts.length) {
       throw new AppError(
-        `could not find product ${checkInexistentProducts[0].id}.`,
+        `Could not find product ${checkInexistentProducts[0].id}.`,
       );
     }
 
@@ -52,11 +52,12 @@ class CreateOrderService {
 
     if (quantityAvailable.length) {
       throw new AppError(
-        `the quantity ${quantityAvailable[0].quantity} is not available for ${quantityAvailable[0].id}.`,
+        `The quantity ${quantityAvailable[0].quantity}
+         is not available for ${quantityAvailable[0].id}.`,
       );
     }
 
-    const seralizedProducts = products.map(product => ({
+    const serializedProducts = products.map(product => ({
       product_id: product.id,
       quantity: product.quantity,
       price: existsProducts.filter(p => p.id === product.id)[0].price,
@@ -64,7 +65,7 @@ class CreateOrderService {
 
     const order = await ordersRepository.createOrder({
       customer: customerExists,
-      products: seralizedProducts,
+      products: serializedProducts,
     });
 
     const { order_products } = order;

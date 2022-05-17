@@ -8,10 +8,10 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import Order from './Order';
-import Product from '@modules/products/typeorm/entities/Product';
+import Product from '../../../products/typeorm/entities/Product';
 
 @Entity('orders_products')
-class OrdersProducts {
+export default class OrdersProducts {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -41,5 +41,3 @@ class OrdersProducts {
   @UpdateDateColumn()
   updated_at: Date;
 }
-
-export default OrdersProducts;
